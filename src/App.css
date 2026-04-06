@@ -1,51 +1,159 @@
+/* ============================================
+   App Styles: Current Weather Display
+   ============================================ */
+
+/* Main Container */
 .container {
-  text-align: center;
-  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  background: radial-gradient(
+    ellipse at top,
+    rgba(22, 36, 73, 0.4) 0%,
+    transparent 60%
+  );
 }
 
-.title {
-  color: #fff;
-  font-size: 2rem;
-  font-weight: 300;
-  margin-bottom: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+/* Search Bar */
+.search-container {
+  width: 100%;
+  max-width: 480px;
+  margin-bottom: var(--space-12);
 }
 
+.search-input {
+  width: 100%;
+  padding: var(--space-4) var(--space-6);
+  font-family: var(--font-body);
+  font-size: var(--text-body-md);
+  color: var(--color-on-surface);
+  background: var(--color-surface-container-highest);
+  border: none;
+  border-radius: var(--radius-3xl);
+  outline: none;
+  transition: box-shadow var(--transition-normal);
+}
+
+.search-input::placeholder {
+  color: var(--color-on-surface-variant);
+}
+
+.search-input:focus {
+  box-shadow: 0 0 0 3px rgba(123, 209, 250, 0.2);
+}
+
+/* Weather Card - Hero */
 .weather-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border-radius: 24px;
-  padding: 3rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 600px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border-radius: var(--radius-3xl);
+  padding: var(--space-12);
+  position: relative;
+  overflow: hidden;
 }
 
+.weather-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(123, 209, 250, 0.15) 0%,
+    rgba(22, 128, 166, 0.15) 100%
+  );
+  pointer-events: none;
+}
+
+/* Location */
 .location {
-  font-size: 1.5rem;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 1rem;
+  font-family: var(--font-headline);
+  font-size: var(--text-headline-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-on-surface);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-2);
+}
+
+/* Temperature Display */
+.temp-container {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--space-4);
 }
 
 .temp {
-  font-size: 5rem;
-  font-weight: 700;
-  color: #fff;
-  text-shadow: 0 0 30px rgba(100, 200, 255, 0.5);
+  font-family: var(--font-display);
+  font-size: var(--text-display-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-on-surface);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
 }
 
+.temp-unit {
+  font-family: var(--font-headline);
+  font-size: var(--text-headline-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-on-surface-variant);
+  margin-left: var(--space-1);
+  margin-top: var(--space-2);
+}
+
+/* Condition */
 .condition {
-  font-size: 1.5rem;
-  color: #4ecdc4;
-  margin-top: 0.5rem;
+  font-family: var(--font-body);
+  font-size: var(--text-title-lg);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-primary);
+  margin-bottom: var(--space-8);
 }
 
-@media (max-width: 768px) {
-  .temp {
-    font-size: 3.5rem;
-  }
-  
-  .weather-card {
-    padding: 2rem;
-  }
+/* Weather Details */
+.weather-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-outline-variant);
+}
+
+.detail-item {
+  text-align: center;
+}
+
+.detail-label {
+  font-family: var(--font-label);
+  font-size: var(--text-label-sm);
+  color: var(--color-on-surface-variant);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-1);
+}
+
+.detail-value {
+  font-family: var(--font-headline);
+  font-size: var(--text-title-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-on-surface);
+}
+
+/* Loading State */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  color: var(--color-on-surface-variant);
+}
+
+/* Error State */
+.error {
+  text-align: center;
+  color: var(--color-on-surface-variant);
+  padding: var(--space-8);
 }
