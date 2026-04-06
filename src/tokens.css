@@ -1,7 +1,115 @@
 :root {
-  --color-primary: #3b82f6;
-  --color-bg: #020617;
-  --color-text: #ffffff;
-  --font-heading: 'Space Grotesk', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  /* ============================================
+     Design Tokens: Atmospheric Minimalist Editorial
+     Project: hava-durumu (Weather App)
+     ============================================ */
+
+  /* Colors - Surface Hierarchy */
+  --color-background: #070d1f;
+  --color-surface: #070d1f;
+  --color-surface-dim: #070d1f;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #09122a;
+  --color-surface-container: #0d1530;
+  --color-surface-container-high: #131e3d;
+  --color-surface-container-highest: #162449;
+  --color-surface-variant: #162449;
+  --color-surface-bright: #1d2a50;
+
+  /* Colors - Primary (Moonlight Blue) */
+  --color-primary: #7bd1fa;
+  --color-primary-container: #1680a6;
+  --color-on-primary: #00334d;
+  --color-on-primary-container: #a3e4ff;
+
+  /* Colors - Secondary */
+  --color-secondary: #a3b4d6;
+  --color-secondary-container: #3a476d;
+  --color-on-secondary: #1e2640;
+  --color-on-secondary-container: #d6e0f5;
+
+  /* Colors - Text */
+  --color-on-surface: #e8ecf5;
+  --color-on-surface-variant: #9daad6;
+  --color-outline: #3a476d;
+  --color-outline-variant: rgba(58, 71, 109, 0.15);
+
+  /* Typography - Font Families */
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-headline: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-label: 'Inter', system-ui, sans-serif;
+
+  /* Typography - Scale */
+  --text-display-lg: 3.5rem;
+  --text-display-md: 2.5rem;
+  --text-display-sm: 1.75rem;
+  --text-headline-lg: 2rem;
+  --text-headline-md: 1.5rem;
+  --text-headline-sm: 1.25rem;
+  --text-title-lg: 1.125rem;
+  --text-title-md: 1rem;
+  --text-title-sm: 0.875rem;
+  --text-body-lg: 1rem;
+  --text-body-md: 0.875rem;
+  --text-body-sm: 0.75rem;
+  --text-label-lg: 0.875rem;
+  --text-label-md: 0.75rem;
+  --text-label-sm: 0.625rem;
+
+  /* Typography - Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Typography - Line Heights */
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+
+  /* Spacing */
+  --space-0: 0;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* Border Radius */
+  --radius-none: 0;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Shadows - Ambient Glow (Primary tinted) */
+  --shadow-sm: 0 1px 2px rgba(123, 209, 250, 0.06);
+  --shadow-md: 0 4px 6px rgba(123, 209, 250, 0.06);
+  --shadow-lg: 0 10px 15px rgba(123, 209, 250, 0.06);
+  --shadow-xl: 0 20px 25px rgba(123, 209, 250, 0.06);
+  --shadow-glow: 0 20px 40px rgba(123, 209, 250, 0.08);
+  --shadow-glow-strong: 0 0 60px rgba(123, 209, 250, 0.15);
+
+  /* Glass Effect */
+  --glass-bg: rgba(22, 36, 73, 0.6);
+  --glass-blur: blur(24px);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 200ms ease;
+  --transition-slow: 300ms ease;
+  --transition-slower: 500ms ease;
 }
