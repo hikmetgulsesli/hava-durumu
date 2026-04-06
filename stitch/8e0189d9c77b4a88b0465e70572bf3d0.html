@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#000000",
+                        "secondary-container": "#2e3c50",
+                        "surface-container-highest": "#162449",
+                        "on-surface": "#dfe4ff",
+                        "tertiary-fixed": "#bdcbf8",
+                        "primary-dim": "#6cc3eb",
+                        "surface-dim": "#070d1f",
+                        "error-container": "#871f21",
+                        "on-primary-container": "#000000",
+                        "on-tertiary": "#3e4b71",
+                        "on-error-container": "#ff9993",
+                        "surface-container-low": "#09122a",
+                        "secondary-dim": "#abbad2",
+                        "tertiary": "#ced9ff",
+                        "on-primary-fixed": "#003041",
+                        "on-primary-fixed-variant": "#004f69",
+                        "primary-container": "#1680a6",
+                        "tertiary-container": "#bdcbf8",
+                        "on-background": "#dfe4ff",
+                        "on-surface-variant": "#9daad6",
+                        "primary": "#7bd1fa",
+                        "secondary-fixed-dim": "#c7d5ee",
+                        "on-tertiary-container": "#354368",
+                        "on-secondary-fixed": "#324054",
+                        "inverse-on-surface": "#4f5469",
+                        "tertiary-fixed-dim": "#b0bde9",
+                        "tertiary-dim": "#b0bde9",
+                        "background": "#070d1f",
+                        "secondary-fixed": "#d5e3fd",
+                        "surface-tint": "#7bd1fa",
+                        "surface-bright": "#1d2a50",
+                        "surface-container": "#0e1834",
+                        "surface": "#070d1f",
+                        "primary-fixed": "#7bd1fa",
+                        "on-error": "#490006",
+                        "on-tertiary-fixed": "#212f53",
+                        "on-tertiary-fixed-variant": "#3e4c71",
+                        "on-secondary-fixed-variant": "#4e5c71",
+                        "outline-variant": "#3a476d",
+                        "inverse-primary": "#006787",
+                        "inverse-surface": "#faf8ff",
+                        "secondary": "#b9c7e0",
+                        "on-secondary-container": "#b2c0d9",
+                        "error": "#fa746f",
+                        "primary-fixed-dim": "#6cc3eb",
+                        "surface-variant": "#162449",
+                        "on-primary": "#00465d",
+                        "error-dim": "#c54d4a",
+                        "surface-container-high": "#131e3d",
+                        "outline": "#67749e",
+                        "on-secondary": "#334155"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #070d1f;
+            color: #dfe4ff;
+            font-family: 'Inter', sans-serif;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, minmax(200px, auto));
+            gap: 1.5rem;
+        }
+        @media (max-width: 1024px) {
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 640px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .glass-card {
+            background: rgba(22, 36, 73, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(58, 71, 109, 0.15);
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-2xl flex justify-between items-center px-8 h-20 w-full">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-slate-50">Gök Gözlemcisi</span>
+<div class="hidden md:flex gap-6">
+<a class="font-inter tracking-tight text-sky-300 border-b-2 border-sky-300 pb-1" href="#">Anasayfa</a>
+<a class="font-inter tracking-tight text-slate-400 hover:text-slate-200 transition-colors duration-300" href="#">Haritalar</a>
+<a class="font-inter tracking-tight text-slate-400 hover:text-slate-200 transition-colors duration-300" href="#">İstatistikler</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-surface-container-highest px-4 py-2 rounded-full flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-32 md:w-48 text-on-surface" placeholder="Şehir ara..." type="text"/>
+</div>
+<button class="p-2 rounded-full hover:bg-sky-400/10 transition-colors duration-300 text-sky-300">
+<span class="material-symbols-outlined">location_on</span>
+</button>
+<button class="p-2 rounded-full hover:bg-sky-400/10 transition-colors duration-300 text-sky-300">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</nav>
+<!-- SideNavBar (Hidden on small screens) -->
+<aside class="fixed left-0 top-0 h-full w-72 border-r border-slate-800/50 bg-slate-950 flex flex-col py-8 gap-4 hidden lg:flex mt-20">
+<div class="px-8 mb-4">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+<div>
+<p class="font-inter text-sm font-medium text-sky-300">Gök Paneli</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest">İstanbul, TR</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col flex-grow">
+<a class="px-8 py-4 flex items-center gap-4 text-sky-300 font-bold border-r-4 border-sky-300 bg-sky-300/5 transition-all" href="#">
+<span class="material-symbols-outlined">cloud</span>
+<span class="font-inter text-sm font-medium">Anasayfa</span>
+</a>
+<a class="px-8 py-4 flex items-center gap-4 text-slate-500 hover:text-slate-300 hover:bg-slate-900/50 transition-all" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-inter text-sm font-medium">Haritalar</span>
+</a>
+<a class="px-8 py-4 flex items-center gap-4 text-slate-500 hover:text-slate-300 hover:bg-slate-900/50 transition-all" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-inter text-sm font-medium">İstatistikler</span>
+</a>
+<a class="px-8 py-4 flex items-center gap-4 text-slate-500 hover:text-slate-300 hover:bg-slate-900/50 transition-all" href="#">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="font-inter text-sm font-medium">Kaydedilenler</span>
+</a>
+</div>
+<div class="px-8">
+<button class="w-full py-3 px-4 bg-primary-container text-on-primary-container rounded-xl text-sm font-bold flex items-center justify-center gap-2 scale-95 active:opacity-80 transition-all">
+<span class="material-symbols-outlined text-sm">sync_alt</span>
+                Konum Değiştir
+            </button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="lg:ml-72 pt-28 px-6 lg:px-12 pb-20">
+<header class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="text-on-surface-variant text-sm font-medium tracking-[0.2em] uppercase mb-2">Detaylı Görünüm</h1>
+<h2 class="text-4xl md:text-5xl font-bold tracking-tighter text-on-surface">Atmosferik Veriler</h2>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant bg-surface-container-low px-4 py-2 rounded-full text-xs font-medium border border-outline-variant/10">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">schedule</span>
+                Son güncelleme: 14:45
+            </div>
+</header>
+<div class="bento-grid">
+<!-- Hero Weather Card (Spans 2 columns) -->
+<div class="lg:col-span-2 rounded-xl glass-card p-8 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-8">
+<span class="material-symbols-outlined text-7xl text-primary/20 group-hover:scale-110 transition-transform duration-700" style="font-variation-settings: 'FILL' 1;">cloud</span>
+</div>
+<div class="relative z-10">
+<p class="text-on-surface-variant text-sm font-semibold mb-1">Şu An</p>
+<h3 class="text-2xl font-bold text-on-surface mb-8">Parçalı Bulutlu</h3>
+<div class="flex items-baseline gap-2">
+<span class="text-8xl font-bold tracking-tighter text-primary">24°</span>
+<span class="text-2xl text-on-surface-variant font-light">C</span>
+</div>
+</div>
+<div class="flex gap-6 relative z-10 pt-6">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase tracking-widest text-on-surface-variant">Hissedilen</span>
+<span class="text-lg font-bold text-on-surface">26°</span>
+</div>
+<div class="flex flex-col border-l border-outline-variant/20 pl-6">
+<span class="text-[10px] uppercase tracking-widest text-on-surface-variant">Rüzgar</span>
+<span class="text-lg font-bold text-on-surface">12 km/s</span>
+</div>
+<div class="flex flex-col border-l border-outline-variant/20 pl-6">
+<span class="text-[10px] uppercase tracking-widest text-on-surface-variant">Görüş</span>
+<span class="text-lg font-bold text-on-surface">10 km</span>
+</div>
+</div>
+<!-- Shimmer Gradient overlay -->
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary-container/10 opacity-40 pointer-events-none"></div>
+</div>
+<!-- UV Index Card -->
+<div class="rounded-xl bg-surface-container-high p-8 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-on-surface-variant text-[10px] uppercase tracking-[0.2em] font-bold mb-1">UV Endeksi</p>
+<h4 class="text-3xl font-bold text-on-surface">Düşük</h4>
+</div>
+<span class="material-symbols-outlined text-primary text-3xl">wb_sunny</span>
+</div>
+<div class="my-6">
+<div class="h-2 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container" style="width: 25%"></div>
+</div>
+<div class="flex justify-between mt-2 text-[10px] text-on-surface-variant font-bold">
+<span>0</span>
+<span>11+</span>
+</div>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">Günün geri kalanında koruma gerekmiyor.</p>
+</div>
+<!-- Humidity Card -->
+<div class="rounded-xl bg-surface-container-high p-8 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-on-surface-variant text-[10px] uppercase tracking-[0.2em] font-bold mb-1">Nem</p>
+<h4 class="text-3xl font-bold text-on-surface">%42</h4>
+</div>
+<span class="material-symbols-outlined text-primary text-3xl">humidity_mid</span>
+</div>
+<div class="relative w-full h-24 mt-4 flex items-end justify-between gap-1">
+<div class="w-2 bg-primary/20 rounded-full h-[40%]"></div>
+<div class="w-2 bg-primary/20 rounded-full h-[55%]"></div>
+<div class="w-2 bg-primary/20 rounded-full h-[45%]"></div>
+<div class="w-2 bg-primary rounded-full h-[70%]"></div>
+<div class="w-2 bg-primary/20 rounded-full h-[60%]"></div>
+<div class="w-2 bg-primary/20 rounded-full h-[50%]"></div>
+</div>
+<p class="text-xs text-on-surface-variant font-medium mt-4">Çiy noktası şu an 14°C.</p>
+</div>
+<!-- Pressure Card -->
+<div class="rounded-xl bg-surface-container-high p-8 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-on-surface-variant text-[10px] uppercase tracking-[0.2em] font-bold mb-1">Basınç</p>
+<h4 class="text-3xl font-bold text-on-surface">1015 hPa</h4>
+</div>
+<span class="material-symbols-outlined text-primary text-3xl">compress</span>
+</div>
+<div class="relative flex items-center justify-center my-6">
+<div class="w-24 h-24 rounded-full border-4 border-surface-variant flex items-center justify-center">
+<div class="absolute w-1 h-12 bg-primary origin-bottom -rotate-45 -translate-y-6 rounded-full"></div>
+<span class="text-[10px] text-on-surface-variant font-bold mt-4">Normal</span>
+</div>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">Son 3 saatte stabil seyrediyor.</p>
+</div>
+<!-- Precipitation/Map (Spans 2 columns) -->
+<div class="lg:col-span-2 rounded-xl bg-surface-container p-8 flex flex-col h-[300px] overflow-hidden relative group">
+<div class="flex justify-between items-center mb-6 relative z-10">
+<div>
+<p class="text-on-surface-variant text-[10px] uppercase tracking-[0.2em] font-bold mb-1">Yağış Haritası</p>
+<h4 class="text-xl font-bold text-on-surface">Bölgesel Görünüm</h4>
+</div>
+<button class="bg-surface-bright/50 hover:bg-surface-bright px-4 py-2 rounded-full text-xs font-bold text-primary transition-all">Genişlet</button>
+</div>
+<div class="absolute inset-0 z-0">
+<img alt="Weather map" class="w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-[2000ms]" data-alt="dark stylized topographic map of Istanbul with soft blue glowing overlays representing cloud coverage and weather patterns" data-location="Istanbul" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMpNnHaEosbWgjxCaUNcT_YVlYwfDvlO1uBeahUrI_0dSZRnPAcxfOJKBcs5dbdwzTQ4UCaEnZ9G4Hzy4GRnYCsFQuQgcPUFSwKQucWPXG5zkC6FKGinSGz7wm6iBt_Cmz0Z80cquOASVQH3NHLsNOnfXFZvXL5wFasSZvY2iDBOeplTeb2l4qSBfYK0nbV37JC0MGz0wnejqI9Khc6FST5qHe4U6YSm42pJMMJYqrplakZaqRg4PImuk4yTAPy6rjKHz3Zj0XEqA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
+</div>
+</div>
+<!-- Sunset/Sunrise -->
+<div class="rounded-xl bg-surface-container-low border border-outline-variant/10 p-8 flex flex-col justify-between">
+<div>
+<p class="text-on-surface-variant text-[10px] uppercase tracking-[0.2em] font-bold mb-1">Gün Batımı</p>
+<h4 class="text-3xl font-bold text-on-surface">19:42</h4>
+</div>
+<div class="my-6 relative">
+<svg class="w-full" viewbox="0 0 100 50">
+<path d="M0,50 Q50,0 100,50" fill="none" stroke="#3a476d" stroke-width="2"></path>
+<path d="M0,50 Q50,0 80,40" fill="none" stroke="#7bd1fa" stroke-dasharray="100" stroke-width="2"></path>
+<circle cx="80" cy="40" fill="#7bd1fa" r="3"></circle>
+</svg>
+</div>
+<div class="flex justify-between items-end">
+<span class="text-[10px] text-on-surface-variant font-bold uppercase">Gün Doğumu: 05:54</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation for Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-slate-950/90 backdrop-blur-xl flex justify-around items-center h-16 z-50 px-4">
+<button class="flex flex-col items-center gap-1 text-sky-300">
+<span class="material-symbols-outlined">cloud</span>
+<span class="text-[10px] font-medium">Hava</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">map</span>
+<span class="text-[10px] font-medium">Harita</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">insights</span>
+<span class="text-[10px] font-medium">Veri</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-medium">Ayar</span>
+</button>
+</nav>
+</body></html>

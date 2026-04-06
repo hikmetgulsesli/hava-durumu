@@ -1,0 +1,51 @@
+.container {
+  text-align: center;
+  padding: 2rem;
+}
+
+.title {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.weather-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.location {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1rem;
+}
+
+.temp {
+  font-size: 5rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 30px rgba(100, 200, 255, 0.5);
+}
+
+.condition {
+  font-size: 1.5rem;
+  color: #4ecdc4;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .temp {
+    font-size: 3.5rem;
+  }
+  
+  .weather-card {
+    padding: 2rem;
+  }
+}
